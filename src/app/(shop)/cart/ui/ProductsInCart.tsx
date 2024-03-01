@@ -33,48 +33,53 @@ export const ProductsInCart = () => {
   }
 
   return (
-    <>
-      {productsInCart.map((product) => (
-        <div key={ `${ product.slug }-${ product.size }`  } className="flex mb-5">
-          <Image
-            src={product.image }
-            width={100}
-            height={100}
-            style={{
-              width: "100px",
-              height: "100px",
-            }}
-            alt={product.title}
-            className="mr-5 rounded"
-          />
 
-          <div>
-            <Link 
-              className="hover:underline cursor-pointer"
-              href={ `/product/${ product.slug } ` }>
-              { product.size } - {product.title}
-            </Link>
-            
-            <p>${product.price}</p>
-            <QuantitySelector 
-              quantity={ product.quantity } 
-              onQuantityChanged={ quantity => updateProductQuantity(product, quantity) }
-            />
-
-<div className="flex flex-col mt-5 ">
-  <button
-    onClick={() => removeProduct(product)}
-    className="flex  p-2  hover:bg-gray-100 rounded transition-all"
-  >
-    <IoTrashOutline size={30} className= "text-red-500"  />
-    <span className="text-xl text-red-500">Remover</span>
-  </button>
-</div>
-            
-          
+      <>
+        {productsInCart.map((product) => (
+          <div key={`${product.slug}-${product.size}`} className="flex mb-5">
+            <div>
+              <Image
+                src={product.image}
+                width={100}
+                height={100}
+                style={{
+                  width: "100px",
+                  height: "100px",
+                }}
+                alt={product.title}
+                className="rounded"
+              />
+  
+              <div>
+                <Link
+                  className="hover:underline cursor-pointer"
+                  href={`/product/${product.slug}`}
+                >
+                  {product.size} - {product.title}
+                </Link>
+  
+                <p>${product.price}</p>
+                <QuantitySelector
+                  quantity={product.quantity}
+                  onQuantityChanged={(quantity) =>
+                    updateProductQuantity(product, quantity)
+                  }
+                />
+  
+                {/* Move the remove button here */}
+                <div className="flex flex-col mt-2">
+                  <button
+                    onClick={() => removeProduct(product)}
+                    className="flex p-2 hover:bg-gray-100 rounded transition-all"
+                  >
+                    <IoTrashOutline size={30} className="text-red-500" />
+                    <span className="text-l text-red-500">Remover</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-    </>
-  );
-};
+        ))}
+      </>
+    );
+  };
