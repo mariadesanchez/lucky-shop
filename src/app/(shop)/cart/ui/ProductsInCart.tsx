@@ -6,7 +6,10 @@ import Image from 'next/image';
 import { useCartStore } from '@/store';
 import { ProductImage, QuantitySelector } from '@/components';
 import Link from 'next/link';
-
+import {
+  IoTrashOutline,
+  
+} from "react-icons/io5";
 
 
 export const ProductsInCart = () => {
@@ -58,9 +61,17 @@ export const ProductsInCart = () => {
               onQuantityChanged={ quantity => updateProductQuantity(product, quantity) }
             />
 
-            <button 
-              onClick={ () => removeProduct(product) }
-              className="underline mt-3">Remover</button>
+<div className="flex flex-col mt-5 ">
+  <button
+    onClick={() => removeProduct(product)}
+    className="flex  p-2  hover:bg-gray-100 rounded transition-all"
+  >
+    <IoTrashOutline size={30} className= "text-red-500"  />
+    <span className="text-xl text-red-500">Remover</span>
+  </button>
+</div>
+            
+          
           </div>
         </div>
       ))}

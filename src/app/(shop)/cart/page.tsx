@@ -1,5 +1,5 @@
 import Link from 'next/link';
-
+import {IoStorefrontOutline} from "react-icons/io5";
 
 
 import { Title } from '@/components';
@@ -21,18 +21,22 @@ export default function CartPage() {
 
       <div className="flex flex-col w-[1000px]">
 
-        <Title title='Carrito' />
+        <Title title='Tus Compras...' />
 
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
 
           {/* Carrito */ }
           <div className="flex flex-col mt-5">
-            <span className="text-xl">Agregar más items</span>
-            <Link href="/" className="underline mb-5">
-              Continúa comprando
+        
+            <Link
+              href="/"
+           
+              className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
+            >
+            <IoStorefrontOutline size={30} mb={3} className="text-green-600" />
+              <span className="ml-3 mb-3 text-xl text-green-600"> Continúa comprando</span>
             </Link>
-         
 
 
           {/* Items */ }
