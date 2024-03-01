@@ -20,7 +20,7 @@ export const ProductsInCart = () => {
 
   useEffect(() => {
     setLoaded(true) ;
-  },[]);
+  }, []);
 
 
 
@@ -33,7 +33,7 @@ export const ProductsInCart = () => {
     <>
       {productsInCart.map((product) => (
         <div key={ `${ product.slug }-${ product.size }`  } className="flex mb-5">
-          <ProductImage
+          <Image
             src={product.image }
             width={100}
             height={100}

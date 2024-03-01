@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
-
+import { currencyFormat } from "@/utils";
 import Link from "next/link";
 import { IoSearchOutline, IoCartOutline } from "react-icons/io5";
 
@@ -11,6 +11,7 @@ export const TopMenu = () => {
 
   const openSideMenu = useUIStore((state) => state.openSideMenu);
   const totalItemsInCart = useCartStore((state) => state.getTotalItems());
+  // const totalSumary = useCartStore((state) => state.getSummaryInformation().total);
   
   const [loaded, setLoaded] = useState(false);
 
@@ -52,6 +53,12 @@ export const TopMenu = () => {
         >
           Niños
         </Link>
+        <Link
+          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
+          href="/gender/unisex"
+        >
+         Unisex
+        </Link>
       </div>
 
       {/* Search, Cart, Menu */}
@@ -74,7 +81,7 @@ export const TopMenu = () => {
             <IoCartOutline className="w-5 h-5" />
           </div>
         </Link>
-
+        {/* <h3 className='text-green-500'>{currencyFormat(totalSumary)}</h3> */}
         <button
           onClick={openSideMenu}
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"

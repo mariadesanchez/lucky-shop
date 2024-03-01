@@ -40,17 +40,17 @@ export default async function OrdersByIdPage({ params }: Props) {
                 key={item.product.slug + "-" + item.size}
                 className="flex mb-5"
               >
-                <Image
-                  src={`/products/${item.product.ProductImage[0].url}`}
-                  width={100}
-                  height={100}
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                  }}
-                  alt={item.product.title}
-                  className="mr-5 rounded"
-                />
+                  <Image
+            src={item.product.ProductImage[0].url}
+            width={100}
+            height={100}
+            style={{
+              width: "100px",
+              height: "100px",
+            }}
+            alt={item.product.title}
+            className="mr-5 rounded"
+          />
 
                 <div>
                   <p>{item.product.title}</p>

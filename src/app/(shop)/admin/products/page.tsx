@@ -82,13 +82,17 @@ export default async function OrdersPage({ searchParams }: Props) {
               >
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   <Link href={`/product/${product.slug}`}>
-                    <ProductImage
-                      src={ product.ProductImage[0]?.url }
-                      width={80}
-                      height={80}
-                      alt={product.title}
-                      className="w-20 h-20 object-cover rounded"
-                    />
+                  <Image
+            src={product.images[0] }
+            width={100}
+            height={100}
+            style={{
+              width: "100px",
+              height: "100px",
+            }}
+            alt={product.title}
+            className="mr-5 rounded"
+          />
                   </Link>
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

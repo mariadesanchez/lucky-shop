@@ -47,6 +47,8 @@ export const getOrderById = async( id: string ) => {
       }
     });
 
+
+
     if( !order ) throw `${ id } no existe`;
 
     if ( session.user.role === 'user' ) {

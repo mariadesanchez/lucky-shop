@@ -22,3 +22,5 @@ export const OrderStatus = ({ isPaid }: Props) => {
     </div>
   );
 };
+
+//IoTrashOutline

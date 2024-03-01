@@ -53,18 +53,18 @@ export const ProductSlideshow = ( { images, title, className }: Props ) => {
       >
 
         {
-          images.map( image => (
-            <SwiperSlide key={ image }>
-              <ProductImage
-                width={ 1024 }
-                height={ 800 }
-                src={ image }
-                alt={ title }
-                className="rounded-lg object-fill"
-              />
-            </SwiperSlide>
-
-          ) )
+            images.map( image => (
+              <SwiperSlide key={ image }>
+                <Image
+                  width={ 600 }
+                  height={ 500 }
+                  src={ image  }
+                  alt={ title }
+                  className="object-fill"
+                />
+              </SwiperSlide>
+  
+            ) )
         }
       </Swiper>
 
@@ -79,14 +79,26 @@ export const ProductSlideshow = ( { images, title, className }: Props ) => {
         className="mySwiper"
       >
         {
+          // images.map( image => (
+          //   <SwiperSlide key={ image }>
+          //     <ProductImage
+          //       width={ 300 }
+          //       height={ 300 }
+          //       src={ image }
+          //       alt={ title }
+          //       className="rounded-lg object-fill"
+          //     />
+          //   </SwiperSlide>
+
+          // ) )
           images.map( image => (
             <SwiperSlide key={ image }>
-              <ProductImage
-                width={ 300 }
-                height={ 300 }
+              <Image
+                width={ 600 }
+                height={ 500 }
                 src={ image }
                 alt={ title }
-                className="rounded-lg object-fill"
+                className="object-fill"
               />
             </SwiperSlide>
 
