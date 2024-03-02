@@ -11,6 +11,8 @@ export * from './auth/logout';
 export * from './auth/register';
 
 export * from './category/get-categories';
+export * from './category/get-category-by-id';
+export * from './category/create-update-category';
 
 export * from './country/get-countries';
 

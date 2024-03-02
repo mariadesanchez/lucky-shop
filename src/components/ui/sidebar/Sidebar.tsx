@@ -4,6 +4,7 @@ import Link from "next/link";
 import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import {
+  IoAppsOutline,
   IoCloseOutline,
   IoLogInOutline,
   IoLogOutOutline,
@@ -12,6 +13,7 @@ import {
   IoSearchOutline,
   IoShirtOutline,
   IoTicketOutline,
+
 } from "react-icons/io5";
 
 import { useUIStore } from "@/store";
@@ -124,6 +126,15 @@ export const Sidebar = () => {
             >
               <IoShirtOutline size={30} />
               <span className="ml-3 text-xl">Productos</span>
+            </Link>
+
+            <Link
+              href="/admin/categories"
+              onClick={() => closeMenu()}
+              className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
+            >
+              < IoAppsOutline size={30} />
+              <span className="ml-3 text-xl">Categorías</span>
             </Link>
 
             <Link
