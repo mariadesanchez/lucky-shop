@@ -47,7 +47,7 @@ export const getPaginatedCategories = async ({
     return {
       currentPage: page,
       totalPages: totalPages,
-     categories: categories.map((category) => ({
+      categories: categories.map((category) => ({
         ...category,
         // images: product.ProductImage.map((image) => image.url),
       })),

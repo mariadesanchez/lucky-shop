@@ -32,6 +32,7 @@ enum Role {
 model Category {
   id      String    @id @default(uuid())
   name    String    @unique
+  // image   String
   Product Product[]
 }
 

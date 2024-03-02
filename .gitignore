@@ -40,3 +40,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+prisma/migrations/20240302111501_npx_prisma_migrate_save_name_nombre_de_la_migracion_category
+
