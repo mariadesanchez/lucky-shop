@@ -5,7 +5,7 @@ import { Category} from "@/interfaces";
 
 
 import { createUpdateCategory } from "@/actions";
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 
 interface Props {
@@ -67,7 +67,7 @@ export const CategoryForm = ({ category }: Props) => {
     }
 
     router.replace(`/admin/category/${ updatedCategory?.id }`)
-
+   
 
   };
 
@@ -104,5 +104,6 @@ export const CategoryForm = ({ category }: Props) => {
       </div>
      
     </form>
+  
   );
 };

@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { Category } from '@prisma/client';
 import { z } from 'zod';
 import {v2 as cloudinary} from 'cloudinary';
+import {redirect} from 'next/navigation'
 cloudinary.config( process.env.CLOUDINARY_URL ?? '' );
 
 
@@ -35,8 +36,7 @@ export const createUpdateCategory = async( formData: FormData ) => {
     const prismaTx = await prisma.$transaction( async (tx) => {
   
       let category: Category;
-      
-  
+    
       if ( id ) {
         // Actualizar
         category = await prisma.category.update({
@@ -57,7 +57,8 @@ export const createUpdateCategory = async( formData: FormData ) => {
         })
       }
       return {
-        category
+        category,
+        
       }
     });
 
@@ -66,13 +67,12 @@ export const createUpdateCategory = async( formData: FormData ) => {
     revalidatePath('/admin/categories');
     revalidatePath(`/admin/category/${ category.id }`);
     revalidatePath(`/categories/${ category.id }`);
-
+ 
 
     return {
       ok: true,
       category: prismaTx.category,
     }
-
     
   } catch (error) {
     
