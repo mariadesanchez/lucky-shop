@@ -16,7 +16,7 @@ interface Props {
 
 interface FormInputs {
   name: string;
-  // image: string;
+
   
  
 }
@@ -52,7 +52,7 @@ export const CategoryForm = ({ category }: Props) => {
     if ( category.id ){
       formData.append("id", category.id ?? "");
     }
-    // formData.append("image", categoryToSave.image);
+  
     formData.append("name", categoryToSave.name);
  
    
@@ -61,10 +61,10 @@ export const CategoryForm = ({ category }: Props) => {
 
     const { ok, category:updatedCategory } = await createUpdateCategory(formData);
 
-    if ( !ok ) {
-      alert('La Categoría no se pudo actualizar');
-      return;
-    }
+    // if ( !ok ) {
+    //   alert('La Categoría no se pudo actualizar');
+    //   return;
+    // }
 
     router.replace(`/admin/category/${ updatedCategory?.id }`)
    
@@ -78,17 +78,6 @@ export const CategoryForm = ({ category }: Props) => {
     >
          <div className="w-full"> <div className="flex flex-col mb-2">
 
-      {/* Textos */}
-     {/* <div className="w-full"> <div className="flex flex-col mb-2">
-            <span>Fotos</span>
-            <input
-              type="file"
-              {...register("image")}
-              multiple
-              className="p-2 border rounded-md bg-gray-200"
-              accept="image/png, image/jpg, image/avif"
-            />
-          </div>  */}
         <div className="flex flex-col mb-2">
           <span>Nombre</span>
           <input

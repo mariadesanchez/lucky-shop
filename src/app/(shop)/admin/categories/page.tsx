@@ -1,13 +1,19 @@
+
 export const revalidate = 0;
 
 // https://tailwindcomponents.com/component/hoverable-table
 
 import { getPaginatedCategories } from "@/actions/category/get-paginated-categories";
 import { Pagination, Title } from "@/components";
+import DeleteCategory from "@/components/category/DeleteCategory";
+
+
 
 // import Image from "next/image";
 
 import Link from "next/link";
+import { IoPencilOutline } from "react-icons/io5";
+
 
 
 interface Props {
@@ -36,19 +42,25 @@ export default async function CategoriesPage({ searchParams }: Props) {
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b">
             <tr>
-              <th
-                scope="col"
-                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-              >
-                Imagen
-              </th>
+            
               <th
                 scope="col"
                 className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
               >
                Nombre
               </th>
-             
+              <th
+                scope="col"
+                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Editar
+              </th>
+              <th
+                scope="col"
+                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Eliminar
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -57,29 +69,30 @@ export default async function CategoriesPage({ searchParams }: Props) {
                 key={category.id}
                 className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
               >
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                  {/* <Link href={`/product/${product.slug}`}>
-                  <Image
-            src={product.images[0] }
-            width={100}
-            height={100}
-            style={{
-              width: "100px",
-              height: "100px",
-            }}
-            alt={product.title}
-            className="mr-5 rounded"
-          />
-                  </Link> */}
-                </td>
+               {category.id!=='06f88cd1-f80c-420f-86e5-770ecb319eed'&&
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                 
+                    {category.name}
+                 
+                </td>}
+                {category.id!=='06f88cd1-f80c-420f-86e5-770ecb319eed'&&
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                  {/* Editar */}
+                 
                   <Link
                     href={`/admin/category/${category.id}`}
                     className="hover:underline"
                   >
-                    {category.name}
-                  </Link>
-                </td>
+                      <IoPencilOutline size={40} className="text-blue-500" />
+                 
+                    </Link>
+                  </td>}
+                  {category.id!=='06f88cd1-f80c-420f-86e5-770ecb319eed'&&
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                
+               
+                  <DeleteCategory id={category.id}/>
+                  </td>}
                 
               </tr>
             ))}

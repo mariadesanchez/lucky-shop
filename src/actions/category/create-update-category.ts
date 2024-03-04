@@ -5,7 +5,9 @@ import { revalidatePath } from 'next/cache';
 import { Category } from '@prisma/client';
 import { z } from 'zod';
 import {v2 as cloudinary} from 'cloudinary';
-import {redirect} from 'next/navigation'
+
+
+import { redirect } from 'next/navigation';
 cloudinary.config( process.env.CLOUDINARY_URL ?? '' );
 
 
@@ -45,8 +47,10 @@ export const createUpdateCategory = async( formData: FormData ) => {
             ...rest,
             
           }
+          
         });
-  
+      revalidatePath('/admin/categories');
+      redirect('/admin/categories')
       } else {
         // Crear
         category = await prisma.category.create({
@@ -55,6 +59,8 @@ export const createUpdateCategory = async( formData: FormData ) => {
            
           }
         })
+        revalidatePath('/admin/categories');
+        redirect('/admin/categories')
       }
       return {
         category,
@@ -67,13 +73,13 @@ export const createUpdateCategory = async( formData: FormData ) => {
     revalidatePath('/admin/categories');
     revalidatePath(`/admin/category/${ category.id }`);
     revalidatePath(`/categories/${ category.id }`);
- 
-
+    
+   
     return {
       ok: true,
       category: prismaTx.category,
+      
     }
-    
   } catch (error) {
     
     return {
@@ -81,7 +87,6 @@ export const createUpdateCategory = async( formData: FormData ) => {
       message: 'Revisar los logs, no se pudo actualizar/crear'
     }
   }
-
 }
 
 
