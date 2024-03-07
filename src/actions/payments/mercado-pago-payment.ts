@@ -1,5 +1,4 @@
 'use server';
-// import { StatusIsPaid } from '@prisma/client';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { redirect } from 'next/navigation';
 
@@ -9,10 +8,9 @@ interface Order {
 }
 
 export const mercadoPagoCheckPayment = async (order: Order) => {
-  const client = new MercadoPagoConfig({ accessToken: process.env.NEXT_MERCADO_PAGO_ACCESS_TOKEN! });
-
-  // Cambiar a producción
-  client.sandboxMode(false);
+  const accessToken = process.env.NEXT_MERCADO_PAGO_ACCESS_TOKEN!;
+  
+  const client = new MercadoPagoConfig({ accessToken });
 
   const preference = new Preference(client);
 
@@ -39,5 +37,5 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
     },
   });
 
-  redirect(res.init_point!); // Usar init_point para el entorno de producción
+  redirect(res.init_point!); // Use init_point for the production environment
 };
