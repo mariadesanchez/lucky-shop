@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getOrderById } from "@/actions/order/get-order-by-id";
 import { currencyFormat } from "@/utils";
 import { OrderStatus, PayPalButton, Title } from "@/components";
+import { MercadoPagoButton } from "@/components/mercadoPago/MercadoPagoButton";
 
 interface Props {
   params: {
@@ -113,6 +114,13 @@ export default async function OrdersByIdPage({ params }: Props) {
                 <OrderStatus isPaid={order?.isPaid ?? false} />
               ) : (
                 <PayPalButton amount={order!.total} orderId={order!.id} />
+              )}
+            </div>
+            <div className="mt-5 mb-2 w-full">
+              {order?.isPaid ? (
+                <OrderStatus isPaid={order?.isPaid ?? false} />
+              ) : (
+                <MercadoPagoButton orderTotal={order!.total} orderId={order!.id} />
               )}
             </div>
           </div>

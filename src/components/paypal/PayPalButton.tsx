@@ -9,9 +9,6 @@ interface Props {
   orderId: string;
   amount: number;
 }
-
-
-
 export const PayPalButton = ({ orderId, amount }: Props) => {
 
   const [{ isPending }] = usePayPalScriptReducer();
