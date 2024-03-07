@@ -34,7 +34,7 @@ export const mercadoPagoCheckPayment = async (order:Order) => {
             ],
             redirect_urls: {
                 failure: `${process.env.NEXT_URL}/orders/${order?.id}`,
-                success: `${process.env.NEX_URL}/orders/${order?.id}`,
+                success: `${process.env.NEXT_URL}/orders/${order?.id}`,
             },
             back_urls:{
                 failure: `${process.env.NEXT_URL}/orders/${order?.id}`,
@@ -44,6 +44,6 @@ export const mercadoPagoCheckPayment = async (order:Order) => {
          }
         })
 
-    // redirect(res.sandbox_init_point!);
+    redirect(res.sandbox_init_point!);
     
 }
