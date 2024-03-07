@@ -33,12 +33,12 @@ export const mercadoPagoCheckPayment = async (order:Order) => {
                 }
             ],
             redirect_urls: {
-                failure: `${process.env.NEXT_URL}/orders/${order?.id}`,
-                success: `${process.env.NEXT_URL}/orders/${order?.id}`,
+                failure: `${process.env.NEXT_URL}`,
+                success: `${process.env.NEXT_URL}`,
             },
             back_urls:{
-                failure: `${process.env.NEXT_URL}/orders/${order?.id}`,
-                success: `${process.env.NEXT_URL}/orders/${order?.id}`,
+                failure: `${process.env.NEXT_URL}`,
+                success: `${process.env.NEXT_URL}`,
             },
             auto_return: 'approved'
          }
