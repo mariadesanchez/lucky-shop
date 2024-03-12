@@ -30,19 +30,7 @@ export const ProductGridItem = ( { product }: Props ) => {
           onMouseEnter={ () => setDisplayImage( product.images[1] )  }
           onMouseLeave={ () => setDisplayImage( product.images[0] ) }
           />
-         {/* <ProductImage
-            src={product.images[ 0 ] }
-            img2={product.images[ 1 ]}  
-            width={100}
-            height={100}
-            style={{
-              width: "100px",
-              height: "100px",
-            }}
-            alt={product.title}
-            className="mr-5 rounded"
-            
-          /> */}
+        
       </Link>
 
       <div className="p-4 flex flex-col">

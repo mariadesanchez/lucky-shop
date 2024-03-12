@@ -42,10 +42,7 @@ export default async function GenderByPage({ params, searchParams }: Props) {
     'unisex': 'para todos'
   }
 
-  // if ( id === 'kids' ) {
-  //   notFound();
-  // }
-
+  
 
   return (
     <>

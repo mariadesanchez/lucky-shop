@@ -11,12 +11,13 @@ export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/auth/login',
     newUser: '/auth/new-account',
+    signOut: '/auth/login',
   },
 
   callbacks: {
 
     authorized({ auth, request: { nextUrl } }) {
-      console.log({ auth });
+      // console.log({ auth });
       // const isLoggedIn = !!auth?.user;
 
       // const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');

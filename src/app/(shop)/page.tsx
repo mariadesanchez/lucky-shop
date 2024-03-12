@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 
 import { getPaginatedProductsWithImages } from '@/actions';
 import { Pagination, ProductGrid, Title } from '@/components';
+// import SearchComponent from '@/components/search/[query]/SearchComponent';
 
 
 
@@ -29,12 +30,12 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <>
-    <Title
+    {/* <Title
       title="LuckySport"
       className="titleBlue mb-4 text-blue-700"
-    />
+    /> */}
    
-  
+
     <ProductGrid 
       products={products}
     />
