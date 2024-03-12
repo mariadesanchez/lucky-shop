@@ -2,7 +2,6 @@
 
 import prisma from "@/lib/prisma";
 import { Gender } from "@prisma/client";
-import { searchProductByTerm } from "../search/search-product-by-term";
 
 interface PaginationOptions {
   page?: number;
@@ -24,7 +23,7 @@ export const getPaginatedProductsSearchWithImages = async ({
       take: take,
       skip: (page - 1) * take,
       include: {
-        ProductImage: {
+        images: {
           take: 2,
           select: {
             url: true,
@@ -74,7 +73,7 @@ export const getPaginatedProductsSearchWithImages = async ({
       totalPages: totalPages,
       products: products.map((product) => ({
         ...product,
-        images: product.ProductImage.map((image) => image.url),
+        images: product.images.map((image) => image.url),
       })),
     };
   } catch (error) {
