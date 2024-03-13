@@ -6,9 +6,12 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import './slideshow.css';
+import Image from 'next/image';
+
+
 
 interface Props {
-  images: string[]; // Aquí se asume que las imágenes son URLs completas de Cloudinary
+  images: string[];
   title: string;
   className?: string;
 }
@@ -28,15 +31,20 @@ export const ProductMobileSlideshow = ({ images, title, className }: Props) => {
         modules={[FreeMode, Autoplay, Pagination]}
         className="mySwiper2"
       >
-        {images.map((imageUrl) => (
-          <SwiperSlide key={imageUrl}>
-            <img
-              src={imageUrl}
-              alt={title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </SwiperSlide>
-        ))}
+        {
+            images.map( image => (
+              <SwiperSlide key={ image }>
+                <Image
+                  width={ 600 }
+                  height={ 500 }
+                  src={ image  }
+                  alt={ title }
+                  className="object-fill"
+                />
+              </SwiperSlide>
+  
+            ) )
+        }
       </Swiper>
     </div>
   );
