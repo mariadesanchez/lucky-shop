@@ -1,5 +1,6 @@
-export const revalidate = 60; // 60 segundos
 
+export const revalidate = 60; // 60 segundos
+import { useEffect } from 'react';
 import { getPaginatedProductsSearchWithImages } from '@/actions/product/product-search-pagination';
 import { Pagination, ProductGrid, Title } from '@/components';
 
@@ -31,7 +32,9 @@ export default async function QueryByPage({ params, searchParams }: Props) {
 
 
   if ( products.length === 0 ) {
-    redirect(`/search/${ query }`);
+   
+    
+    redirect('/');
   }
   
   return (
