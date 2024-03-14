@@ -9,15 +9,10 @@ interface Props {
 
 export const DeleteCategory = ({ id }: Props) => {
   return (
-    // <div>
-    //   <button
-    //     type="button"
-    //     onClick={() => deleteCategoryById(id)}
-    //     className="btn-danger w-full rounded-b-xl"
-    //   >
-    //     Eliminar
-    //   </button>
-    // </div>
+  //antes de eliminar la categoría tengo que colocarle el UUI
+  //de la categoría Sin Categría,por ejemplo ed3945ce-fda4-4a9b-a028-32733212e28d,
+  //update a categoryId con este UUI, asi me queda sin categoría
+  //y no tengo que eliminarlo físicamente por si en algùn momento necesito dicho producto
     <div className="flex flex-col mt-2">
     <button
        onClick={() => deleteCategoryById(id)}

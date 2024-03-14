@@ -12,7 +12,7 @@ export async function deleteCategoryById(id: string) {
         categoryId: id,
       },
       data: {
-        categoryId: '75759362-c861-45a7-b7e1-3a2408971963', // O el valor que prefieras para la categoría "sin categoría".
+        categoryId: 'ed3945ce-fda4-4a9b-a028-32733212e28d', // O el valor que prefieras para la categoría "sin categoría".
       },
     });
 
