@@ -225,11 +225,11 @@ export const ProductForm = ({ product, categories }: Props) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {product.ProductImage?.map((image) => (
-              <div key={image.id}>
+            {product.images?.map((imageUrl:any) => (
+              <div key={imageUrl.id}>
                 <Image
                   alt={product.title ?? ""}
-                  src={ image.url }
+                  src={ imageUrl }
                   width={300}
                   height={300}
                   className="rounded-t shadow-md"
@@ -237,7 +237,7 @@ export const ProductForm = ({ product, categories }: Props) => {
 
                 <button
                   type="button"
-                  onClick={() => deleteProductImage(image.id, image.url)}
+                  onClick={() => deleteProductImage(imageUrl)}
                   className="btn-danger w-full rounded-b-xl"
                 >
                   Eliminar
