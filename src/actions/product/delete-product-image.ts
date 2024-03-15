@@ -39,9 +39,9 @@ export const deleteProductImage = async (imageUrl: string) => {
       }
     });
     // Revalidar los paths
-    revalidatePath(`/admin/products`);
-    revalidatePath(`/admin/product/${productSlug}`);
-    revalidatePath(`/product/${productSlug}`);
+    // revalidatePath(`/admin/products`);
+    // revalidatePath(`/admin/product/${productSlug}`);
+    // revalidatePath(`/product/${productSlug}`);
     
     return {
       ok: true,

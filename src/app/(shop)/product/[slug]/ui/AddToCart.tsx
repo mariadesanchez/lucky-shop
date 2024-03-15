@@ -22,7 +22,6 @@ export const AddToCart = ({ product }: Props) => {
     setPosted(true);
 
     if (!size) return;
-   if( Number(quantity) > Number(product.inStock)) return;
 
     const cartProduct: CartProduct = {
       id: product.id,
@@ -31,9 +30,7 @@ export const AddToCart = ({ product }: Props) => {
       price: product.price,
       quantity: quantity,
       size: size,
-      image: product.images[0],
-      inStock: product.inStock,
-      
+      image: product.images[0]
     }
 
     addProductToCart(cartProduct);
@@ -41,29 +38,18 @@ export const AddToCart = ({ product }: Props) => {
     setQuantity(1);
     setSize(undefined);
 
+
   };
 
 
-
-
   return (
-    <>{product.inStock?
-    <div>
-      <div>
+    <>
       {posted && !size && (
-        <p className="mt-2 mr-5 text-red-500 fade-in">
+        <span className="mt-2 text-red-500 fade-in">
           Debe de seleccionar una talla*
-        </p>
+        </span>
       )}
-      </div>
-      <div>
 
-      {posted && Number(quantity) > Number(product.inStock)&& (
-        <p className="mt-2 text-red-500 fade-in">
-          Supera el Stock({product.inStock})
-        </p>
-      )}
-     </div>
       {/* Selector de Tallas */}
       <SizeSelector
         selectedSize={size}
@@ -73,17 +59,11 @@ export const AddToCart = ({ product }: Props) => {
 
       {/* Selector de Cantidad */}
       <QuantitySelector quantity={quantity} onQuantityChanged={setQuantity} />
-      </div>:
-      <h3></h3>
-      }
+
       {/* Button */}
-      {product.inStock? <button onClick={addToCart} className="btn-primary my-5">
+      <button onClick={addToCart} className="btn-primary my-5">
         Agregar al carrito
-      </button>:
-       
-       <h1 className="mt-5 mb-5 text-red-500 font-bold">Sin Stock</h1>
-     }
-     
+      </button>
     </>
   );
 };
