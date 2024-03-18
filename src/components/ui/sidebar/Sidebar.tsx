@@ -101,6 +101,7 @@ export const Sidebar = () => {
             <IoLogOutOutline size={30} />
             <span className="ml-3 text-xl">Salir</span>
           </button>
+       
         )}
 
         {!isAuthenticated && (
