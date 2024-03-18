@@ -62,10 +62,10 @@ export const initialData: SeedData = {
     {
       description: "Introducing the Tesla Chill Collection. The Men’s Chill Crew Neck Sweatshirt has a premium, heavyweight exterior and soft fleece interior for comfort in any season. The sweatshirt features a subtle thermoplastic polyurethane T logo on the chest and a Tesla wordmark below the back collar. Made from 60% cotton and 40% recycled polyester.",
       images: [
-        'https://res.cloudinary.com/dluveuqnm/image/upload/v1710293571/e98srcvl8tcmrcimyv4n.webp',
-        'https://res.cloudinary.com/dluveuqnm/image/upload/v1710293571/gwcrkqedzfdvu3kjebw0.webp'
-      
-        
+        // 'https://res.cloudinary.com/dluveuqnm/image/upload/v1710293571/e98srcvl8tcmrcimyv4n.webp',
+        // 'https://res.cloudinary.com/dluveuqnm/image/upload/v1710293571/gwcrkqedzfdvu3kjebw0.webp'
+         'https://res.cloudinary.com/dluveuqnm/image/upload/v1710782027/k8ja8ugtjhunbkizq6pe.webp',
+         'https://res.cloudinary.com/dluveuqnm/image/upload/v1710782026/mlfepzep5pyc1hqhmfae.webp'  
       ],
       inStock: 7,
       price: 75,
