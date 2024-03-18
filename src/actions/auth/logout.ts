@@ -7,7 +7,7 @@ import { redirect } from 'next/dist/server/api-utils';
 export const logout = async() => {
 
   await signOut();
-redirect('/login');
+
 
 
 }
