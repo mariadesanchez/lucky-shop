@@ -6,7 +6,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { createUpdateProduct, deleteProductImage } from "@/actions";
 import { useRouter } from 'next/navigation';
-import { ProductImage } from '@/components';
+
 
 interface Props {
   product: Partial<Product> & { ProductImage?: ProductWithImage[] };

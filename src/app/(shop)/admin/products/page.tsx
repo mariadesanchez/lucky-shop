@@ -3,6 +3,7 @@ export const revalidate = 0;
 // https://tailwindcomponents.com/component/hoverable-table
 import { getPaginatedOrders, getPaginatedProductsWithImages } from "@/actions";
 import { Pagination, ProductImage, Title } from "@/components";
+import DeleteProduct from "@/components/product/delete-product";
 import { currencyFormat } from "@/utils";
 import Image from "next/image";
 
@@ -72,6 +73,13 @@ export default async function OrdersPage({ searchParams }: Props) {
               >
                 Tallas
               </th>
+
+              <th
+                scope="col"
+                className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              >
+                Eliminar
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -118,6 +126,12 @@ export default async function OrdersPage({ searchParams }: Props) {
                 <td className="text-sm text-gray-900 font-bold px-6 py-4 whitespace-nowrap">
                   {product.sizes.join(", ")}
                 </td>
+
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+
+                  <DeleteProduct id={product.id}/>
+                  </td>
+
               </tr>
             ))}
           </tbody>
