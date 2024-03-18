@@ -1,13 +1,13 @@
 'use server';
 
 import { signOut } from '@/auth.config';
-import { redirect } from 'next/dist/server/api-utils';
+import { redirect } from 'next/navigation';
 
 
 export const logout = async() => {
 
-  await signOut();
-
+  // await signOut();
+  redirect("/auth/login");
 
 
 }

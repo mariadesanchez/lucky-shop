@@ -69,13 +69,13 @@ export default async function CategoriesPage({ searchParams }: Props) {
                 key={category.id}
                 className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
               >
-               {category.id!=='09ee370a-582f-4114-9d99-770e9e5f1f66'&&
+               {category.id!=='f4e6c0f9-9c1f-47c0-af70-19c4a5102a8c'&&
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                  
                     {category.name}
                  
                 </td>}
-                {category.id!=='09ee370a-582f-4114-9d99-770e9e5f1f66'&&
+                {category.id!=='f4e6c0f9-9c1f-47c0-af70-19c4a5102a8c'&&
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   {/* Editar */}
                  
@@ -87,7 +87,7 @@ export default async function CategoriesPage({ searchParams }: Props) {
                  
                     </Link>
                   </td>}
-                  {category.id!=='09ee370a-582f-4114-9d99-770e9e5f1f66'&&
+                  {category.id!=='f4e6c0f9-9c1f-47c0-af70-19c4a5102a8c'&&
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                 
                
