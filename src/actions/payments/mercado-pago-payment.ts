@@ -27,8 +27,6 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
           unit_price: order.total,
         },
       ],
-       // TODO: Revalidar un path
-    // revalidatePath(`/orders/${ orderId }`);
       redirect_urls: {
         failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
         success:`https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
@@ -40,13 +38,16 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
       auto_return: 'approved',
     },
   });
-  // await prisma.order.update({
-  //   where: { id: order.id },
-  //   data:  {
-  //     isPaid: true,
-  //     paidAt: new Date()
-  //   }
-  // })
-  // revalidatePath(`/orders/${ order.id }`);
+
+  // Actualiza la orden como pagada en la base de datos
+  await prisma.order.update({
+    where: { id: order.id },
+    data:  {
+      isPaid: true,
+      paidAt: new Date()
+    }
+  });
+
+  // Redirige al usuario después de que Mercado Pago haya cobrado y la orden haya sido actualizada
   redirect(res.init_point!); 
 };
