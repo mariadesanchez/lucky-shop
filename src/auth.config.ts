@@ -11,7 +11,7 @@ export const authConfig: NextAuthConfig = {
   pages: {
     signIn: '/auth/login',
     newUser: '/auth/new-account',
-    signOut: '/auth/login',
+    signOut: '/admin/auth/login',
   },
 
   callbacks: {
