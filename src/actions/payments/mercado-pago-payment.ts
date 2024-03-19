@@ -26,12 +26,12 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         },
       ],
       redirect_urls: {
-        failure: "https://lucky-shop-three.vercel.app",
-        success:"https://lucky-shop-three.vercel.app",
+        failure: "https://lucky-shop-next14.vercel.app",
+        success:"https://lucky-shop-next14.vercel.app",
       },
       back_urls: {
-        failure: "https://lucky-shop-three.vercel.app",
-        success: "https://lucky-shop-three.vercel.app",
+        failure: "https://lucky-shop-next14.vercel.app",
+        success: "https://lucky-shop-next14.vercel.app",
       },
       auto_return: 'approved',
     },
