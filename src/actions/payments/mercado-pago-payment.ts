@@ -1,6 +1,8 @@
 'use server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { redirect } from 'next/navigation';
+import prisma from '@/lib/prisma';
+import { revalidatePath } from 'next/cache';
 
 interface Order {
   id: string;
@@ -38,6 +40,13 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
       auto_return: 'approved',
     },
   });
-
-  redirect(res.init_point!); // Use init_point for the production environment
+  await prisma.order.update({
+    where: { id: order.id },
+    data:  {
+      isPaid: true,
+      paidAt: new Date()
+    }
+  })
+  revalidatePath(`/orders/${ order.id }`);
+  // redirect(res.init_point!); 
 };
