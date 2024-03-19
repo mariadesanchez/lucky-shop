@@ -25,13 +25,15 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
           unit_price: order.total,
         },
       ],
+       // TODO: Revalidar un path
+    // revalidatePath(`/orders/${ orderId }`);
       redirect_urls: {
-        failure: "https://lucky-shop-next14.vercel.app",
-        success:"https://lucky-shop-next14.vercel.app",
+        failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
+        success:`https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
       },
       back_urls: {
-        failure: "https://lucky-shop-next14.vercel.app",
-        success: "https://lucky-shop-next14.vercel.app",
+        failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
+        success: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
       },
       auto_return: 'approved',
     },
