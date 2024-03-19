@@ -40,13 +40,13 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
       auto_return: 'approved',
     },
   });
-  await prisma.order.update({
-    where: { id: order.id },
-    data:  {
-      isPaid: true,
-      paidAt: new Date()
-    }
-  })
-  revalidatePath(`/orders/${ order.id }`);
-  // redirect(res.init_point!); 
+  // await prisma.order.update({
+  //   where: { id: order.id },
+  //   data:  {
+  //     isPaid: true,
+  //     paidAt: new Date()
+  //   }
+  // })
+  // revalidatePath(`/orders/${ order.id }`);
+  redirect(res.init_point!); 
 };
