@@ -17,7 +17,7 @@ export const TopMenu = () => {
   }, []);
 
   return (
-    <nav className="flex px-5 justify-between items-center w-full flex-col md:flex-row mb-4">
+    <nav className="flex flex-col md:flex-row justify-between items-center px-5 w-full mb-4">
       {/* Logo */}
       <div>
         <Link href="/">
@@ -28,8 +28,8 @@ export const TopMenu = () => {
         </Link>
       </div>
 
-      {/* Center Menu - Géneros */}
-      <div className="hidden sm:block">
+      {/* Géneros */}
+      <div className="flex justify-center md:justify-start md:ml-auto">
         <Link
           className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
           href="/gender/men"
