@@ -1,6 +1,7 @@
 'use server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 interface Order {
   id: string;
@@ -49,7 +50,8 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         paidAt: new Date()
       }
     });
-
+  // TODO: Revalidar un path
+  revalidatePath(`/orders/${ order.id }`);
     // Redirigir al usuario
     redirect(res.init_point!);
   } catch (error) {
