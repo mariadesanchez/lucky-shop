@@ -93,7 +93,7 @@ export const Sidebar = () => {
           </>
         )}
 
-        {/* {isAuthenticated && (
+        {isAuthenticated && (
           <button
             className="flex w-full items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
             onClick={() => logout()}
@@ -102,18 +102,8 @@ export const Sidebar = () => {
             <span className="ml-3 text-xl">Salir</span>
           </button>
        
-        )} */}
-
-        {isAuthenticated && (
-          <Link
-            href="/"
-            className="flex items-center mt-10 p-2 hover:bg-gray-100 rounded transition-all"
-            onClick={() => closeMenu()}
-          >
-            <IoLogInOutline size={30} />
-            <span className="ml-3 text-xl">Salir</span>
-          </Link>
         )}
+        
 
         {!isAuthenticated && (
           <Link
