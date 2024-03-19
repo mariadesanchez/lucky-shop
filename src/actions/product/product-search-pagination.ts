@@ -11,7 +11,7 @@ interface PaginationOptions {
 
 export const getPaginatedProductsSearchWithImages = async ({
   page = 1,
-  take = 12,
+  take = 6,
   query,
 }: PaginationOptions) => {
   if (isNaN(Number(page))) page = 1;
