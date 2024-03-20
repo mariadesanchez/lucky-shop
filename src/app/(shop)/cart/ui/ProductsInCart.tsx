@@ -40,11 +40,11 @@ export const ProductsInCart = () => {
             <div>
               <Image
                 src={product.image}
-                width={100}
-                height={100}
+                width={200}
+                height={200}
                 style={{
-                  width: "100px",
-                  height: "100px",
+                  width: "300px",
+                  height: "250px",
                 }}
                 alt={product.title}
                 className="rounded"
