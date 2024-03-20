@@ -80,9 +80,9 @@ export default async function ProductBySlugPage({ params }: Props) {
         <h1 className={` ${titleFont.className} antialiased font-bold text-xl`}>
           {product.title}
         </h1>
-
-        <p className="text-lg mb-5">${product.price}</p>
-
+        { product.inStock > 0 &&
+        <p className="text-lg mb-5">`${product.price}</p>
+         }
         <AddToCart product={ product } />
 
         {/* Descripción */}

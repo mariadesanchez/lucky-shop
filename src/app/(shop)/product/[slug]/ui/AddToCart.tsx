@@ -52,18 +52,26 @@ export const AddToCart = ({ product }: Props) => {
       )}
 
       {/* Selector de Tallas */}
+    
+      {product.inStock > 0 && 
+        <>
       <SizeSelector
         selectedSize={size}
         availableSizes={product.sizes}
         onSizeChanged={setSize}
       />
 
-      {/* Selector de Cantidad */}
-      <QuantitySelector quantity={quantity} onQuantityChanged={setQuantity} />
 
-      {/* Button */}
-      <button onClick={addToCart} className="btn-primary my-5">
-        Agregar al carrito
+      <QuantitySelector quantity={quantity} onQuantityChanged={setQuantity} />
+      </>
+}
+<button
+        onClick={product.inStock > 0 ? addToCart : undefined}
+        className={`btn-primary my-5 ${product.inStock === 0 ? 'disabled' : ''}`}
+        disabled={product.inStock === 0}
+        style={{ backgroundColor: product.inStock === 0 ? 'gray' : '' }}
+      >
+        {product.inStock > 0 ? 'Agregar al carrito' : 'Sin Stock'}
       </button>
     </>
   );

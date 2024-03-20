@@ -34,13 +34,15 @@ export const ProductMobileSlideshow = ({ images, title, className }: Props) => {
         {
             images.map( image => (
               <SwiperSlide key={ image }>
-                <Image
-                  width={ 600 }
-                  height={ 500 }
-                  src={ image  }
-                  alt={ title }
-                  className="object-fill"
-                />
+                  <div style={{ margin: '1px' }}> {/* Agregando márgenes pequeños */}
+                  <Image
+                    width={ 250 } // Tamaño más pequeño para las imágenes
+                    height={ 180 } // Tamaño más pequeño para las imágenes
+                    src={ image  }
+                    alt={ title }
+                    className="object-fill"
+                  />
+                </div>
               </SwiperSlide>
   
             ) )
