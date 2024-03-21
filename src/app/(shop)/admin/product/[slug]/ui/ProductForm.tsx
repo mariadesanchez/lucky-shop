@@ -8,6 +8,7 @@ import { createUpdateProduct, deleteProductImage } from "@/actions";
 import { useRouter } from 'next/navigation';
 
 
+
 interface Props {
   product: Partial<Product> & { ProductImage?: ProductWithImage[] };
   categories: Category[];
@@ -93,7 +94,7 @@ export const ProductForm = ({ product, categories }: Props) => {
     }
 
     router.replace(`/admin/product/${ updatedProduct?.slug }`)
-
+    router.push('/admin/products')
 
   };
 
