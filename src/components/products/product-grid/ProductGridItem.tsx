@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ProductImage } from '../../product/product-image/ProductImage';
 import { Product } from '@/interfaces';
 import { useState } from 'react';
+import { useSession } from "next-auth/react";
 
 interface Props {
   product: Product;
@@ -16,6 +17,9 @@ export const ProductGridItem = ( { product }: Props ) => {
 
   const [ displayImage, setDisplayImage ] = useState( product.images[ 0 ] );
 
+  const { data: session } = useSession();
+  const isAuthenticated = !!session?.user;
+  const isAdmin = session?.user.role === "admin";
 
   return (
     <div className="rounded-md overflow-hidden fade-in">
@@ -39,11 +43,27 @@ export const ProductGridItem = ( { product }: Props ) => {
           href={ `/product/${ product.slug }` }>
           { product.title }
         </Link>
-        { !product.inStock?
-        (<div className='flex'>
-      
+        { (product.inStock && isAdmin)&&
+        <div className='flex'>
+       
+        <Link className="font-bold text-red-500 text-2xl" href={'admin/products'}>Sin Stock</Link>
+        
+        
+        </div>
+       }
+         { (product.inStock && !isAdmin)&&
+        <div className='flex'>
+       
         <span className="font-bold text-red-500 text-2xl">Sin Stock</span>
-        </div>):
+        
+        
+        </div>
+       }
+        
+        
+        
+        
+       {product.inStock &&  
          <div className='flex'>
          <span className="font-bold mr-5">${ product.price }</span>
         
