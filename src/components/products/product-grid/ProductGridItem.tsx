@@ -42,7 +42,7 @@ export const ProductGridItem = ( { product }: Props ) => {
         { !product.inStock?
         (<div className='flex'>
       
-        <span className="font-bold text-red-500">Sin Stock</span>
+        <span className="font-bold text-red-500 text-2xl">Sin Stock</span>
         </div>):
          <div className='flex'>
          <span className="font-bold mr-5">${ product.price }</span>
