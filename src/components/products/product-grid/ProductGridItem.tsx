@@ -43,7 +43,7 @@ export const ProductGridItem = ( { product }: Props ) => {
           href={ `/product/${ product.slug }` }>
           { product.title }
         </Link>
-        { (product.inStock && isAdmin)&&
+        { (product.inStock ==0 && isAdmin)&&
         <div className='flex'>
        
         <Link className="font-bold text-red-500 text-2xl" href={'admin/products'}>Sin Stock</Link>
@@ -51,7 +51,7 @@ export const ProductGridItem = ( { product }: Props ) => {
         
         </div>
        }
-         { (product.inStock && !isAdmin)&&
+         { (product.inStock ==0 && !isAdmin)&&
         <div className='flex'>
        
         <span className="font-bold text-red-500 text-2xl">Sin Stock</span>
@@ -63,7 +63,7 @@ export const ProductGridItem = ( { product }: Props ) => {
         
         
         
-       {product.inStock &&  
+       {product.inStock >0 &&  
          <div className='flex'>
          <span className="font-bold mr-5">${ product.price }</span>
         

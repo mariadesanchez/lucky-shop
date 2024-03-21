@@ -44,7 +44,7 @@ export const ProductsInCart = () => {
                 height={200}
                 style={{
                   width: "300px",
-                  height: "250px",
+                  height: "300px",
                 }}
                 alt={product.title}
                 className="rounded"
