@@ -1,7 +1,5 @@
 "use client";
-
 import { useState } from "react";
-
 import { QuantitySelector, SizeSelector } from "@/components";
 import type { CartProduct, Product, Size } from "@/interfaces";
 import { useCartStore } from '@/store';
@@ -11,12 +9,11 @@ interface Props {
 }
 
 export const AddToCart = ({ product }: Props) => {
-
   const addProductToCart = useCartStore( state => state.addProductTocart );
-
   const [size, setSize] = useState<Size | undefined>();
   const [quantity, setQuantity] = useState<number>(1);
   const [posted, setPosted] = useState(false);
+  const [maxReached, setMaxReached] = useState(false);
 
   const addToCart = () => {
     setPosted(true);
@@ -38,10 +35,7 @@ export const AddToCart = ({ product }: Props) => {
     setPosted(false);
     setQuantity(1);
     setSize(undefined);
-
-
   };
-
 
   return (
     <>
@@ -53,19 +47,25 @@ export const AddToCart = ({ product }: Props) => {
 
       {/* Selector de Tallas */}
     
-      {product.inStock > 0 && 
+      {product.inStock > 0 && (
         <>
-      <SizeSelector
-        selectedSize={size}
-        availableSizes={product.sizes}
-        onSizeChanged={setSize}
-      />
+          <SizeSelector
+            selectedSize={size}
+            availableSizes={product.sizes}
+            onSizeChanged={setSize}
+          />
+          <QuantitySelector
+            quantity={quantity}
+            onQuantityChanged={value => {
+              setQuantity(Math.min(value, product.inStock));
+              setMaxReached(value === product.inStock); // Verificar si la cantidad alcanzó el máximo
+            }}
+          />
+        
+        </>
+      )}
 
-
-      <QuantitySelector quantity={quantity} onQuantityChanged={setQuantity} />
-      </>
-}
-<button
+      <button
         onClick={product.inStock > 0 ? addToCart : undefined}
         className={`btn-primary my-5 ${product.inStock === 0 ? 'disabled' : ''}`}
         disabled={product.inStock === 0}
