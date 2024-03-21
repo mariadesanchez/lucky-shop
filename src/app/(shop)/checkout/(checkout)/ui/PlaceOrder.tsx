@@ -106,7 +106,7 @@ export const PlaceOrder = () => {
         <p className="mb-5">
           {/* Disclaimer */}
           <span className="text-xs">
-            Al hacer clic en &quot;Colocar orden&quot;, aceptas nuestros{" "}
+            Al hacer clic en &quot;Ir a Pagar&quot;, aceptas nuestros{" "}
             <a href="#" className="underline">
               términos y condiciones
             </a>{" "}
@@ -130,7 +130,7 @@ export const PlaceOrder = () => {
             })
           }
         >
-          Colocar orden
+          Ir a Pagar
         </button>
       </div>
     </div>

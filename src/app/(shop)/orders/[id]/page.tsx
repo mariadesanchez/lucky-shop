@@ -110,6 +110,7 @@ export default async function OrdersByIdPage({ params }: Props) {
             </div>
 
             <div className="mt-5 mb-2 w-full">
+              <span className="mt-5 mb-15 text-xl ">Medios de Pago :</span>
               {order?.isPaid ? (
                 <OrderStatus isPaid={order?.isPaid ?? false} />
               ) : (
