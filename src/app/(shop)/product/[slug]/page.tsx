@@ -7,8 +7,8 @@ import { titleFont } from "@/config/fonts";
 import {
   ProductMobileSlideshow,
   ProductSlideshow,
-  // QuantitySelector,
-  // SizeSelector,
+  QuantitySelector,
+  SizeSelector,
   StockLabel,
 } from "@/components";
 import { getProductBySlug } from "@/actions";
@@ -48,7 +48,7 @@ export async function generateMetadata(
 export default async function ProductBySlugPage({ params }: Props) {
   const { slug } = params;
   const product = await getProductBySlug(slug);
-
+  console.log(product);
 
   if (!product) {
     notFound();
@@ -81,9 +81,9 @@ export default async function ProductBySlugPage({ params }: Props) {
           {product.title}
         </h1>
         { product.inStock > 0 &&
-        <p className="text-lg mb-5">{product.price}</p>
+        <p className="text-lg mb-5">`${product.price}</p>
          }
-      <AddToCart product={{ ...product, quantity: 1 }} />
+        <AddToCart product={ product } />
 
         {/* Descripción */}
         <h3 className="font-bold text-sm">Descripción</h3>
@@ -92,3 +92,4 @@ export default async function ProductBySlugPage({ params }: Props) {
     </div>
   );
 }
+
