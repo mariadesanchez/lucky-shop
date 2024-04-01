@@ -28,15 +28,16 @@ export const mercadoPagoCheckPayment = async (order: Order) => {
         },
       ],
       redirect_urls: {
-        failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-        success:`https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
+        failure: `https://lucky-san-shop.vercel.app/orders/${ order.id }`,
+        success: `https://lucky-san-shop.vercel.app/orders/${ order.id }`,
       },
       back_urls: {
-        failure: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
-        success: `https://lucky-shop-next14.vercel.app/orders/${ order.id }`,
+        failure: `https://lucky-san-shop.vercel.app/orders/${ order.id }`,
+        success: `https://lucky-san-shop.vercel.app/orders/${ order.id }`,
       },
       auto_return: 'approved',
     },
+    
   });
 
   // Actualiza la orden como pagada en la base de datos
