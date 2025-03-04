@@ -33,7 +33,7 @@ export const PlaceOrder = () => {
   const onPlaceOrder = async() => {
     setIsPlacingOrder(true);
     // await sleep(2);
-
+   //Genero la orden de Pago
     const productsToOrder = cart.map( product => ({
       productId: product.id,
       quantity: product.quantity,

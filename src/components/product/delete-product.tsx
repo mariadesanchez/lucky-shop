@@ -1,5 +1,4 @@
 'use client'
-import { deleteCategoryById } from '@/actions/category/delete-category-by-id'
 import { deleteProductById } from '@/actions/product/delete-product-by-id';
 import React from 'react'
 import { IoTrashOutline } from 'react-icons/io5';
